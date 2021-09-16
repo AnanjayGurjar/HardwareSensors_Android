@@ -17,7 +17,7 @@ import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
 
-    lateinit var sensorEventListener: SensorEventListener
+
     lateinit var sensorManager: SensorManager
     lateinit var proxSensor: Sensor
     lateinit var accelSensor: Sensor
@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     override fun onPause() {
         super.onPause()
-        sensorManager.unregisterListener(sensorEventListener)
+        sensorManager.unregisterListener(this)
     }
     private fun colorForAccel(accel: Float): Int{
         return (((accel + 12)/24)*255).roundToInt()
